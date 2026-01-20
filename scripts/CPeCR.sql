@@ -1,0 +1,63 @@
+SELECT
+	portador,
+	baixa,
+	cc,
+	cheque,
+	titulo,
+	setor AS CodSetor,
+	conta AS CodCateg,
+	categoria,
+	SuConta AS CodSubCateg,
+	SubCategoria AS SubCategoria,
+	CGC,
+	Fornecedor AS AFavor,
+	Vencto AS DtVencimento,
+	Valor,
+	Pagto AS DtPagamento,
+	ValorPago AS ValorEfetivado,
+	mora,
+	Corrigido AS ValorCorrigido,
+	Prorrogado,
+	abatimento,
+	Unidade,
+	Tipo_Lancto,
+	Parcela,
+	Pedido,
+	NF,
+	CAST(Romaneio AS VARCHAR(15)) AS Romaneio,
+	DtEmissao
+FROM [Banco].[dbo].[contas_pagar] AS cp
+WHERE baixa = 'N' and Vencto >= '2015-01-01 00:00:00.000'
+
+UNION ALL
+
+SELECT 
+	portador,
+	baixa,
+	cc,
+	cheque,
+	titulo,
+	setor AS CodSetor,
+	conta AS CodCateg,
+	categoria,
+	SubConta AS CodSubCateg,
+	SubCategoria AS SubCategoria,
+	CGC,
+	Receptor AS AFavor,
+	Vencto AS DtVencimento,
+	Valor,
+	Vencto AS DtPagamento,
+	Valor_Rec AS ValorEfetivado,
+	mora,
+	Corrigido AS ValorCorrigido,
+	Prorrogado,
+	abatimento,
+	Unidade,
+	Tipo_Lancto,
+	Parcela,
+	'99999' AS Pedido,
+	NF,
+	CAST(Romaneio AS VARCHAR(15)) AS Romaneio,
+	DtEmissao
+FROM [Banco].[dbo].[contas_receber] AS cr
+WHERE baixa = 'N' and Vencto >= '2015-01-01 00:00:00.000'

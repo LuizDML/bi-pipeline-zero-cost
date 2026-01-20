@@ -1,0 +1,9 @@
+database:
+  driver: "SQL Server"
+  server: "SERVER_NAME"
+  database: "DATABASE_NAME"
+  uid: "USER"
+  pwd: "PASSWORD"
+
+paths:
+  output: "output/"
