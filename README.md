@@ -63,3 +63,9 @@ Demonstrar:
 - Boas práticas de versionamento
 - Separação de código e configuração
 - Viabilidade de soluções BI com custo zero
+
+## Resultado:
+
+![Dashboard Visão Geral](./images/PowerBi01.png)
+![Dashboard Menu Interativo](./images/PowerBI02.png)
+![Dashboard Venda de Produtos](./images/PowerBI03.png)
